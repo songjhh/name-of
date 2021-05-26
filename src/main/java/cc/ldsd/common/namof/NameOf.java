@@ -28,8 +28,18 @@ public final class NameOf<T> {
      *
      * @param clazz 处理类
      */
-    public static <T> NameOf<T> init(Class<T> clazz) {
+    public static <T> NameOf<T> mInit(Class<T> clazz) {
         return new NameOf<>(clazz, new ArrayList<>(), true);
+    }
+
+    /**
+     * 初始化
+     * 默认转化 id 为 _id
+     *
+     * @param clazz 处理类
+     */
+    public static <T> NameOf<T> init(Class<T> clazz) {
+        return new NameOf<>(clazz, new ArrayList<>(), false);
     }
 
     /**
@@ -40,23 +50,6 @@ public final class NameOf<T> {
      */
     public static <T> NameOf<T> init(Class<T> clazz, boolean changeIdField) {
         return new NameOf<>(clazz, new ArrayList<>(), changeIdField);
-    }
-
-    /**
-     * 切换class
-     */
-    public NameOf<T> clazz(Class<T> clazz) {
-        this.currentClass = clazz;
-        return this;
-    }
-
-    /**
-     * 切换class
-     */
-    public NameOf<T> clazz(Class<T> clazz, boolean changeIdField) {
-        this.currentClass = clazz;
-        this.changeIdField = changeIdField;
-        return this;
     }
 
     /**
