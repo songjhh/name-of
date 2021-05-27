@@ -52,11 +52,21 @@ NameOf.mInit(User.class).field(User::getName).field(User::getAge).array();
 NameOf.mInit(User.class).field(User::getName).any(".").field(User::getPost).str();
 ```
 
+### 5. 特别用法 - 跨类操作
+初始化选择了 `User.class` 之后希望换成 `Address.class` 操作
+```java
+// field(Function<K, ?> bridge, Class<K> kClass)，可以手动指定Class
+// 返回 address.name，其中 name 是 Address.class 的字段，并非初始化的 User.class 字段
+NameOf.mInit(User.class).field(User::getAddress).any(".").field(Address::getName, Address.class).str();
+// 注意：继续使用 field(Function<T, ?> bridge，还是使用初始化的 User.class
+```
+
+
 ## 局限和未来发展
 
 ---
 
-- 不支持跨类操作
+- ~~不支持跨类操作~~  **( v1.1.0版本已经支持 )**
 
 比如：user.address.name (用户的地址名字)
 
