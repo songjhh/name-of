@@ -13,8 +13,8 @@ public final class NameOf<T> {
     private static final String ID = "id";
     private static final String CHANGE_ID = "_id";
     private final List<String> list;
-    private Class<T> currentClass;
-    private boolean changeIdField;
+    private final Class<T> currentClass;
+    private final boolean changeIdField;
 
     private NameOf(Class<T> currentClass, List<String> list, boolean changeIdField) {
         this.currentClass = currentClass;
@@ -57,6 +57,14 @@ public final class NameOf<T> {
      */
     public NameOf<T> field(Function<T, ?> bridge) {
         this.list.add(nameOfField(this.currentClass, bridge));
+        return this;
+    }
+
+    /**
+     * 解析字段
+     */
+    public <K> NameOf<T> field(Function<K, ?> bridge, Class<K> kClass) {
+        this.list.add(nameOfField(kClass, bridge));
         return this;
     }
 

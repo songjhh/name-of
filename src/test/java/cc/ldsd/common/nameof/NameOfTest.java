@@ -43,4 +43,17 @@ class NameOfTest {
                 NameOf.mInit(Manager.class).field(Manager::getAge).any(".").field(Manager::getPost).str());
     }
 
+    @Test
+    void test05() {
+        Assertions.assertEquals("address.name",
+                NameOf.mInit(User.class).field(User::getAddress).any(".").field(Address::getName, Address.class).str());
+    }
+
+    @Test
+    void test06() {
+        Assertions.assertEquals("address.name-age",
+                NameOf.mInit(User.class).field(User::getAddress).any(".").field(Address::getName, Address.class)
+                        .any("-").field(User::getAge).str());
+    }
+
 }
