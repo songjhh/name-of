@@ -48,8 +48,7 @@ public class FieldNameExtractorInterceptor {
     private static String getPropertyName(Method method) {
         final String get = "get";
         final String is = "is";
-        if (method.getParameterTypes().length == 0
-                && method.getReturnType() != Void.TYPE) {
+        if (method.getParameterTypes().length == 0 && method.getReturnType() != Void.TYPE) {
             String name = method.getName();
             if (name.startsWith(get)) {
                 return name.substring(3, 4).toLowerCase() + name.substring(4);

@@ -72,22 +72,6 @@ NameOf.mInit(User.class).field(User::getAddress).any(".").field(Address::getName
 
 ```java
 // 输出 address.name，需要用到字符串拼接
-NameOf.mInit(User.class).field(User::getAddress).any(".").str()
-        +NameOf.mInit(Address.class).field(Address::getName).str()
-```
-
-希望以后可以达到跨类无需字符串拼接的效果。
-
-
-## SonarQube
-
----
-
-name-of: 7b83e433b53953893bc0f2d289ec4946fab08c63
-
-```java
-mvn sonar:sonar \
-  -Dsonar.projectKey=common_name-of_AXmn-quqEKhU3bS9eNIG \
-  -Dsonar.host.url=http://139.159.219.92:10088 \
-  -Dsonar.login=7b83e433b53953893bc0f2d289ec4946fab08c63
+NameOf.mInit(User.class).field(User::getAddress).any(".").str().
+        NameOf.mInit(Address.class).field(Address::getName).str()
 ```

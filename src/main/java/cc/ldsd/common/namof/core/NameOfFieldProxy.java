@@ -37,8 +37,9 @@ public final class NameOfFieldProxy {
         try {
             Constructor<?> constructor = proxyType.getConstructor();
             return (T) constructor.newInstance();
-        } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-            throw new InstantiateProxyException("Couldn't instantiate proxy for method name retrieval", e);
+        } catch (InstantiationException | IllegalAccessException |
+                 NoSuchMethodException | InvocationTargetException e) {
+            throw new InstantiateProxyException("Couldn't instantiate proxy", e);
         }
     }
 }
