@@ -6,7 +6,7 @@
 
     <groupId>cc.ldsd.common</groupId>
     <artifactId>name-of</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -14,7 +14,7 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <java.version>1.8</java.version>
-        <byte-buddy.version>1.11.0</byte-buddy.version>
+        <byte-buddy.version>1.12.21</byte-buddy.version>
         <junit-jupiter.version>5.7.2</junit-jupiter.version>
     </properties>
 

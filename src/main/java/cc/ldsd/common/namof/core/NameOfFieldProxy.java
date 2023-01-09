@@ -31,7 +31,7 @@ public final class NameOfFieldProxy {
                 .method(ElementMatchers.any())
                 .intercept(MethodDelegation.to(FieldNameExtractorInterceptor.class))
                 .make()
-                .load(NameOfFieldProxy.class.getClassLoader(), ClassLoadingStrategy.Default.WRAPPER)
+                .load(type.getClassLoader(), ClassLoadingStrategy.Default.WRAPPER)
                 .getLoaded();
 
         try {
